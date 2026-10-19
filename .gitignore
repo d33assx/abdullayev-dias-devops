@@ -1,0 +1,11 @@
+# Log files are generated at runtime
+*.log
+
+# Local backups
+backup/
+
+# Secrets and environment variables
+.env
+
+# Python cache
+__pycache__/
