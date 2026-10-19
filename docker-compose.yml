@@ -1,0 +1,12 @@
+services:
+  app:
+    build: .
+    image: abdullayev-dias-devops
+    container_name: abdullayev-dias-container
+    ports:
+      - "8081:8080"
+    environment:
+      STUDENT_NAME: Dias
+      STUDENT_SURNAME: Abdullayev
+      STUDENT_GROUP: IT2-2313SE
+      STUDENT_ID: "37240"

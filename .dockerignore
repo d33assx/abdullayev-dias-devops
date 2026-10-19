@@ -1,0 +1,6 @@
+.git
+logs/
+backup/
+.env
+*.log
+__pycache__/
