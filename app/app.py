@@ -4,6 +4,8 @@ Prints the student's information and serves it over HTTP on port 8080.
 Values come from environment variables, with defaults as a fallback.
 """
 import os
+import signal
+import sys
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 NAME = os.getenv("STUDENT_NAME", "Dias")
@@ -39,6 +41,8 @@ class Handler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
+    # Exit cleanly on "docker stop" (SIGTERM) instead of waiting to be killed
+    signal.signal(signal.SIGTERM, lambda *_: sys.exit(0))
     print(banner(), flush=True)
     print(f"Listening on port {PORT}", flush=True)
     HTTPServer(("0.0.0.0", PORT), Handler).serve_forever()
